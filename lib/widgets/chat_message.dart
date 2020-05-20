@@ -9,14 +9,32 @@ class ChatMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     final record = Record.fromMap(snapShot);
     return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: 10.0,
+      ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CircleAvatar(
-            child: Text(
-              record.name[0],
+          Container(
+            margin: EdgeInsets.only(right: 16),
+            child: CircleAvatar(
+              child: Text(
+                record.name[0],
+              ),
             ),
           ),
-          Text(record.text),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15.0),
+              ),
+              color: Colors.white,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text(record.text),
+            ),
+          ),
         ],
       ),
     );
